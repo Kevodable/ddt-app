@@ -1,8 +1,6 @@
 import React from 'react'
 import ArticoliTable, { emptyArticolo } from './ArticoliTable'
 
-const CAUSALE_OPTIONS = ['Vendita', 'Reso', 'Conto lavorazione', 'Conto visione', 'Omaggio', 'Altro']
-const ASPETTO_OPTIONS = ['Cartoni', 'Bancali', 'Sacchi', 'Colli', 'Sfuso', 'Altro']
 
 function SectionCard({ title, icon, children, className = '' }) {
   return (
@@ -267,22 +265,22 @@ export default function DDTForm({ formData, onChange, showPrezzo, showIVA, onTog
           <div className="space-y-3">
             <div className="grid grid-cols-2 gap-3">
               <Field label="Causale trasporto">
-                <select
+                <input
+                  type="text"
                   value={formData.causale}
                   onChange={e => set('causale', e.target.value)}
-                  className="form-select"
-                >
-                  {CAUSALE_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
-                </select>
+                  className="form-input"
+                  placeholder="Es. Vendita, Reso, Omaggio..."
+                />
               </Field>
               <Field label="Aspetto esteriore beni">
-                <select
+                <input
+                  type="text"
                   value={formData.aspetto}
                   onChange={e => set('aspetto', e.target.value)}
-                  className="form-select"
-                >
-                  {ASPETTO_OPTIONS.map(o => <option key={o} value={o}>{o}</option>)}
-                </select>
+                  className="form-input"
+                  placeholder="Es. Cartoni, Bancali, Colli..."
+                />
               </Field>
             </div>
             <div className="grid grid-cols-2 gap-3">
